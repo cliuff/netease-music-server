@@ -1,0 +1,2 @@
+app.project.dir=C:\\path\\to\\your\\project\\dir
+app.datasource.tables=tableName1,tableName2
