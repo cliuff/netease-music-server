@@ -52,6 +52,15 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.4.0</version>
         </dependency>
+
+
+        <!--   shriro的核心包   主要在该项目用来完成密码的加密功能-->
+        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
         <!-- Mybatis Plus 代码生成器 -->
         <dependency>
             <groupId>com.baomidou</groupId>
