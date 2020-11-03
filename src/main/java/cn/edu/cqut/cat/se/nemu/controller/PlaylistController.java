@@ -32,8 +32,8 @@ public class PlaylistController {
 
     @GetMapping("/")
     public DataResponse getPlaylists() {
-        List<Playlist> data = service.list();
-        return new DataResponse().setDataList(data);
+
+        return service.getPlaylists();
     }
 }
 
