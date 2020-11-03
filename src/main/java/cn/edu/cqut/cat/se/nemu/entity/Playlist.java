@@ -10,7 +10,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author CQUT CAT SE 2020
- * @since 2020-11-01
+ * @since 2020-11-03
  */
 public class Playlist extends Model<Playlist> {
 
@@ -18,11 +18,11 @@ public class Playlist extends Model<Playlist> {
 
     private String playlistId;
 
-    private String name;
+    private String playlistName;
 
     private String author;
 
-    private String desc;
+    private String playlistDesc;
 
     private String cover;
 
@@ -30,14 +30,8 @@ public class Playlist extends Model<Playlist> {
 
     private Integer viewCounts;
 
+    private String genre;
 
-    public Integer getViewCounts() {
-        return viewCounts;
-    }
-
-    public void setViewCounts(Integer viewCounts) {
-        this.viewCounts = viewCounts;
-    }
 
     public String getPlaylistId() {
         return playlistId;
@@ -47,12 +41,12 @@ public class Playlist extends Model<Playlist> {
         this.playlistId = playlistId;
     }
 
-    public String getName() {
-        return name;
+    public String getPlaylistName() {
+        return playlistName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPlaylistName(String playlistName) {
+        this.playlistName = playlistName;
     }
 
     public String getAuthor() {
@@ -63,12 +57,12 @@ public class Playlist extends Model<Playlist> {
         this.author = author;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getPlaylistDesc() {
+        return playlistDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setPlaylistDesc(String playlistDesc) {
+        this.playlistDesc = playlistDesc;
     }
 
     public String getCover() {
@@ -87,6 +81,22 @@ public class Playlist extends Model<Playlist> {
         this.time = time;
     }
 
+    public Integer getViewCounts() {
+        return viewCounts;
+    }
+
+    public void setViewCounts(Integer viewCounts) {
+        this.viewCounts = viewCounts;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
     @Override
     protected Serializable pkVal() {
         return this.playlistId;
@@ -96,11 +106,13 @@ public class Playlist extends Model<Playlist> {
     public String toString() {
         return "Playlist{" +
         "playlistId=" + playlistId +
-        ", name=" + name +
+        ", playlistName=" + playlistName +
         ", author=" + author +
-        ", desc=" + desc +
+        ", playlistDesc=" + playlistDesc +
         ", cover=" + cover +
         ", time=" + time +
+        ", viewCounts=" + viewCounts +
+        ", genre=" + genre +
         "}";
     }
 }

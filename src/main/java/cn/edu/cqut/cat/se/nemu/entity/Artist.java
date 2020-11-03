@@ -9,7 +9,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author CQUT CAT SE 2020
- * @since 2020-11-01
+ * @since 2020-11-03
  */
 public class Artist extends Model<Artist> {
 
@@ -17,11 +17,11 @@ public class Artist extends Model<Artist> {
 
     private String artistId;
 
-    private String name;
+    private String artistName;
 
     private String region;
 
-    private String desc;
+    private String artistDesc;
 
 
     public String getArtistId() {
@@ -32,12 +32,12 @@ public class Artist extends Model<Artist> {
         this.artistId = artistId;
     }
 
-    public String getName() {
-        return name;
+    public String getArtistName() {
+        return artistName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 
     public String getRegion() {
@@ -48,12 +48,12 @@ public class Artist extends Model<Artist> {
         this.region = region;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getArtistDesc() {
+        return artistDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setArtistDesc(String artistDesc) {
+        this.artistDesc = artistDesc;
     }
 
     @Override
@@ -65,9 +65,9 @@ public class Artist extends Model<Artist> {
     public String toString() {
         return "Artist{" +
         "artistId=" + artistId +
-        ", name=" + name +
+        ", artistName=" + artistName +
         ", region=" + region +
-        ", desc=" + desc +
+        ", artistDesc=" + artistDesc +
         "}";
     }
 }

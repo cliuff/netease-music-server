@@ -9,7 +9,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author CQUT CAT SE 2020
- * @since 2020-11-01
+ * @since 2020-11-03
  */
 public class PlaylistTrack extends Model<PlaylistTrack> {
 

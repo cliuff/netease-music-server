@@ -10,7 +10,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author CQUT CAT SE 2020
- * @since 2020-11-01
+ * @since 2020-11-03
  */
 public class Album extends Model<Album> {
 
@@ -18,7 +18,7 @@ public class Album extends Model<Album> {
 
     private String albumId;
 
-    private String name;
+    private String albumName;
 
     private String artist;
 
@@ -30,7 +30,7 @@ public class Album extends Model<Album> {
 
     private String region;
 
-    private String desc;
+    private String albumDesc;
 
 
     public String getAlbumId() {
@@ -41,12 +41,12 @@ public class Album extends Model<Album> {
         this.albumId = albumId;
     }
 
-    public String getName() {
-        return name;
+    public String getAlbumName() {
+        return albumName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAlbumName(String albumName) {
+        this.albumName = albumName;
     }
 
     public String getArtist() {
@@ -89,12 +89,12 @@ public class Album extends Model<Album> {
         this.region = region;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getAlbumDesc() {
+        return albumDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setAlbumDesc(String albumDesc) {
+        this.albumDesc = albumDesc;
     }
 
     @Override
@@ -106,13 +106,13 @@ public class Album extends Model<Album> {
     public String toString() {
         return "Album{" +
         "albumId=" + albumId +
-        ", name=" + name +
+        ", albumName=" + albumName +
         ", artist=" + artist +
         ", cover=" + cover +
         ", time=" + time +
         ", genre=" + genre +
         ", region=" + region +
-        ", desc=" + desc +
+        ", albumDesc=" + albumDesc +
         "}";
     }
 }

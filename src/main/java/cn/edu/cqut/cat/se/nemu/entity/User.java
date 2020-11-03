@@ -10,7 +10,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author CQUT CAT SE 2020
- * @since 2020-11-01
+ * @since 2020-11-03
  */
 public class User extends Model<User> {
 
@@ -18,13 +18,13 @@ public class User extends Model<User> {
 
     private String userId;
 
-    private String name;
+    private String userName;
 
     private String password;
 
     private String region;
 
-    private String desc;
+    private String userDesc;
 
     private String sex;
 
@@ -41,12 +41,12 @@ public class User extends Model<User> {
         this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -65,12 +65,12 @@ public class User extends Model<User> {
         this.region = region;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getUserDesc() {
+        return userDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setUserDesc(String userDesc) {
+        this.userDesc = userDesc;
     }
 
     public String getSex() {
@@ -106,10 +106,10 @@ public class User extends Model<User> {
     public String toString() {
         return "User{" +
         "userId=" + userId +
-        ", name=" + name +
+        ", userName=" + userName +
         ", password=" + password +
         ", region=" + region +
-        ", desc=" + desc +
+        ", userDesc=" + userDesc +
         ", sex=" + sex +
         ", age=" + age +
         ", time=" + time +

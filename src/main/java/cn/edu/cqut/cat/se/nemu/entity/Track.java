@@ -10,7 +10,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author CQUT CAT SE 2020
- * @since 2020-11-01
+ * @since 2020-11-03
  */
 public class Track extends Model<Track> {
 
@@ -18,7 +18,7 @@ public class Track extends Model<Track> {
 
     private String trackId;
 
-    private String name;
+    private String trackName;
 
     private String artist;
 
@@ -34,7 +34,7 @@ public class Track extends Model<Track> {
 
     private String region;
 
-    private String desc;
+    private String trackDesc;
 
     private String lyrics;
 
@@ -47,12 +47,12 @@ public class Track extends Model<Track> {
         this.trackId = trackId;
     }
 
-    public String getName() {
-        return name;
+    public String getTrackName() {
+        return trackName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTrackName(String trackName) {
+        this.trackName = trackName;
     }
 
     public String getArtist() {
@@ -111,12 +111,12 @@ public class Track extends Model<Track> {
         this.region = region;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getTrackDesc() {
+        return trackDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setTrackDesc(String trackDesc) {
+        this.trackDesc = trackDesc;
     }
 
     public String getLyrics() {
@@ -136,7 +136,7 @@ public class Track extends Model<Track> {
     public String toString() {
         return "Track{" +
         "trackId=" + trackId +
-        ", name=" + name +
+        ", trackName=" + trackName +
         ", artist=" + artist +
         ", album=" + album +
         ", length=" + length +
@@ -144,7 +144,7 @@ public class Track extends Model<Track> {
         ", time=" + time +
         ", genre=" + genre +
         ", region=" + region +
-        ", desc=" + desc +
+        ", trackDesc=" + trackDesc +
         ", lyrics=" + lyrics +
         "}";
     }

@@ -10,7 +10,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author CQUT CAT SE 2020
- * @since 2020-11-01
+ * @since 2020-11-03
  */
 public class Admin extends Model<Admin> {
 
@@ -18,7 +18,7 @@ public class Admin extends Model<Admin> {
 
     private String adminId;
 
-    private String name;
+    private String adminName;
 
     private String password;
 
@@ -33,12 +33,12 @@ public class Admin extends Model<Admin> {
         this.adminId = adminId;
     }
 
-    public String getName() {
-        return name;
+    public String getAdminName() {
+        return adminName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAdminName(String adminName) {
+        this.adminName = adminName;
     }
 
     public String getPassword() {
@@ -66,7 +66,7 @@ public class Admin extends Model<Admin> {
     public String toString() {
         return "Admin{" +
         "adminId=" + adminId +
-        ", name=" + name +
+        ", adminName=" + adminName +
         ", password=" + password +
         ", time=" + time +
         "}";
