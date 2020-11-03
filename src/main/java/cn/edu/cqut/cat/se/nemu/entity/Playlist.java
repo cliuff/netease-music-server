@@ -28,6 +28,16 @@ public class Playlist extends Model<Playlist> {
 
     private LocalDateTime time;
 
+    private Integer viewCounts;
+
+
+    public Integer getViewCounts() {
+        return viewCounts;
+    }
+
+    public void setViewCounts(Integer viewCounts) {
+        this.viewCounts = viewCounts;
+    }
 
     public String getPlaylistId() {
         return playlistId;

@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface PlaylistMapper extends BaseMapper<Playlist> {
 
-    @Select("SELECT name,cover FROM playlist")
+    @Select("SELECT name,cover,view_counts FROM `playlist` order by view_counts desc limit 0,8")
     public List<Playlist> getPlayList();
 
 }
