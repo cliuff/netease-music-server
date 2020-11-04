@@ -47,7 +47,7 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
 
         for (int i = 0; i < 8; i++) {
 
-            lunboList.add("lun" + (i + 1) + ".jpg");
+            lunboList.add("media/images/lun" + (i + 1) + ".jpg");
 
         }
 
@@ -69,12 +69,15 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
 
     }
 
-    /*@Override
+    @Override
     public DataResponse getPlaylistByGenre(Integer page,Integer limit,String genre) {
 
          if(genre!=null){
 
-             Page<Playlist> playlistPage = baseMapper.selectPlaylistsByGenre(new Page<>(page,limit),genre);
+             QueryWrapper qw = new QueryWrapper();
+             qw.eq("genre",genre);
+
+             Page<Playlist> playlistPage = baseMapper.selectPlaylistsByGenre(new Page<>(page,limit),qw);
 
              if(playlistPage!=null){
 
@@ -89,7 +92,7 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
              return new DataResponse(ResponseMessage.DATA_NULL);
          }
 
-    }*/
+    }
 
     @Override
     public DataResponse getPlaylist(Integer page, Integer limit) {

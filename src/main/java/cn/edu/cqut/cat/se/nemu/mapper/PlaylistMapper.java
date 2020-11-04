@@ -3,10 +3,11 @@ package cn.edu.cqut.cat.se.nemu.mapper;
 import cn.edu.cqut.cat.se.nemu.entity.Playlist;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import sun.security.pkcs11.wrapper.Constants;
+
 
 import java.util.List;
 
@@ -26,8 +27,8 @@ public interface PlaylistMapper extends BaseMapper<Playlist> {
     @Select("SELECT genre FROM `playlist` group by genre having count(*) >1")
     public List<String> getCategary();
 
-   /* @Select("SELECT playlist_name,author,cover,view_counts FROM `playlist` ${ew.customSqlSemgment}")
+    @Select("SELECT playlist_name,author,cover,view_counts FROM `playlist` ${ew.customSqlSemgment}")
     public Page<Playlist> selectPlaylistsByGenre(
             Page<Playlist> page,
-            @Param(Constants.WRAPPER)QueryWrapper<Playlist> queryWrapper);*/
+            @Param(Constants.WRAPPER)QueryWrapper<Playlist> queryWrapper);
 }

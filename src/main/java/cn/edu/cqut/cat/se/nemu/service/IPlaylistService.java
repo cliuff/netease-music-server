@@ -20,7 +20,7 @@ public interface IPlaylistService extends IService<Playlist> {
     DataResponse getLunbo();
     DataResponse getCategary();
 
-   /* DataResponse getPlaylistByGenre(Integer page,Integer limit,String genre);*/
+    DataResponse getPlaylistByGenre(Integer page,Integer limit,String genre);
 
     DataResponse getPlaylist(Integer page, Integer limit);
 }
