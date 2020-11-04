@@ -16,4 +16,7 @@ public interface ITrackService extends IService<Track> {
 
 
     DataResponse getTrackList(Integer page, Integer limit, String artistName, String trackName);
+
+    DataResponse delete(String[] ids);
+
 }

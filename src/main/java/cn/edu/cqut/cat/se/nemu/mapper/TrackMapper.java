@@ -5,6 +5,7 @@ import cn.edu.cqut.cat.se.nemu.entity.Track;
 import cn.edu.cqut.cat.se.nemu.util.SqlMapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
@@ -31,5 +32,12 @@ public interface TrackMapper extends BaseMapper<Track> {
             @Param("trackName")String trackName
 
     );
+
+   @Select("select track_id from track where track_id=#{trackId}")
+   public Track selectTrack(String trackId);
+
+   @Delete("delete from track where track_id=#{trackId}")
+    public Integer deleteTrack(String trackId);
+
 
 }

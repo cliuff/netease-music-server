@@ -8,11 +8,11 @@ public class SqlMapper {
                 "where track.album = album.album_id\n" +
                 "and track.artist = artist.artist_id and 1=1");
 
-        if(artistName!=null && trackName==null){
+        if(artistName!=null && (trackName==null||trackName=="")){
             sql.append(" and artist_name like '%"+artistName+"%'");
 
         }
-        else if(trackName!=null && artistName==null){
+        else if(trackName!=null &&(artistName==null||artistName=="")){
             sql.append(" and track_name like '%"+trackName+"%'");
         }
         else if(trackName!=null && artistName!=null){

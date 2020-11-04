@@ -32,6 +32,13 @@ public class TrackController {
         return iTrackService.getTrackList(page,limit,artistName,trackName);
 
     }
+    @DeleteMapping(value="/delete")
+    public DataResponse delete(String[] ids){
+
+        return iTrackService.delete(ids);
+
+
+    }
 
 
 }
