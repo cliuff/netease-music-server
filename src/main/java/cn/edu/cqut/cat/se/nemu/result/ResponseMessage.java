@@ -11,7 +11,8 @@ public enum ResponseMessage {
     DATA_NULL("00543","无数据"),
     FILE_EMPTY("000400", "文件为空"),
     LIMIT_PICTURE_SIZE("000401", "图片大小不能超过2M"),
-    LIMIT_PICTURE_TYPE("000402", "图片类型必须为jpg，png，jpeg");
+    LIMIT_PICTURE_TYPE("000402", "图片类型必须为jpg，png，jpeg"),
+    SUC("0","成功");
 
     private String code;
     private String msg;

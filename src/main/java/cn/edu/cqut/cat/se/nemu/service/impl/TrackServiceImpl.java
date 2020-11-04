@@ -29,6 +29,6 @@ public class TrackServiceImpl extends ServiceImpl<TrackMapper, Track> implements
     public DataResponse getTrackList(Integer page, Integer limit, String artistName, String trackName) {
 
         Page<TrackInfoDto> trackDtoPage = baseMapper.selectTrackList(new Page<>(page,limit),artistName,trackName);
-        return new DataResponse(ResponseMessage.SUCCESS,trackDtoPage.getRecords(),trackDtoPage.getTotal());
+        return new DataResponse(ResponseMessage.SUC,trackDtoPage.getRecords(),trackDtoPage.getTotal());
     }
 }
