@@ -1,5 +1,7 @@
 package cn.edu.cqut.cat.se.nemu.service;
 
+import cn.edu.cqut.cat.se.nemu.dto.TrackDto;
+import cn.edu.cqut.cat.se.nemu.dto.TrackInfoDto;
 import cn.edu.cqut.cat.se.nemu.entity.Track;
 import cn.edu.cqut.cat.se.nemu.result.DataResponse;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -19,4 +21,5 @@ public interface ITrackService extends IService<Track> {
 
     DataResponse delete(String[] ids);
 
+    DataResponse updateTrack(TrackInfoDto trackInfoDto);
 }

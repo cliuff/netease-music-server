@@ -1,6 +1,7 @@
 package cn.edu.cqut.cat.se.nemu.controller;
 
 
+import cn.edu.cqut.cat.se.nemu.dto.TrackDto;
 import cn.edu.cqut.cat.se.nemu.result.DataResponse;
 import cn.edu.cqut.cat.se.nemu.service.ITrackService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,10 @@ public class TrackController {
         return iTrackService.delete(ids);
 
 
+    }
+    @PutMapping(value="/")
+    public DataResponse update(TrackDto trackDto){
+        return iTrackService.updateTrack(trackDto);
     }
 
 

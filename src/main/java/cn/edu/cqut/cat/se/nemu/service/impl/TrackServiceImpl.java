@@ -48,12 +48,38 @@ public class TrackServiceImpl extends ServiceImpl<TrackMapper, Track> implements
                 }
 
             }
-            return new DataResponse(ResponseMessage.SUCCESS,j);
+            return new DataResponse(j);
 
 
         }catch (Exception e){
             e.printStackTrace();
             //设置手动回滚
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            return new DataResponse(ResponseMessage.FAILURE);
+        }
+
+    }
+
+    @Override
+    @Transactional
+    public DataResponse updateTrack(TrackInfoDto trackInfoDto) {
+
+        try {
+           Track track = baseMapper.selectTrack(trackInfoDto.getTrackId());
+            //还需要加逻辑判定  -- 去学习正则表达式
+            if(track!=null){
+                Integer i =  baseMapper.updateTrack(trackInfoDto.getCover(),trackInfoDto.getGenre(),trackInfoDto.getRegion(),trackInfoDto.getTrackDesc(),trackInfoDto.getTrackId());
+                if(i==0){
+                    return new DataResponse(ResponseMessage.FAILURE);
+                }else{
+                    return new DataResponse(ResponseMessage.SUCCESS);
+                }
+            }else {
+                return new DataResponse("000407","请刷新以后在尝试！");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
             return new DataResponse(ResponseMessage.FAILURE);
         }
