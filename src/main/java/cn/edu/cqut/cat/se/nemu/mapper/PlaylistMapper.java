@@ -32,4 +32,6 @@ public interface PlaylistMapper extends BaseMapper<Playlist> {
     public Page<PlaylistDto> selectPlaylistsByGenre(
             Page<PlaylistDto> page,
             @Param(Constants.WRAPPER)QueryWrapper<Playlist> queryWrapper);
+
+
 }

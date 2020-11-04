@@ -113,6 +113,12 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
 
     }
 
+    @Override
+    public DataResponse getPlaylistByAuthor(String author) {
+
+
+        return null;
+    }
 
 
 }

@@ -50,7 +50,7 @@ public class PlaylistController {
         return service.getCategary();
     }
 
-    @GetMapping(value = "/play")
+    @PostMapping(value = "/play")
     public DataResponse getPlaylist(Integer page,Integer limit){
 
 
@@ -60,13 +60,19 @@ public class PlaylistController {
 
     }
 
-
-    @GetMapping(value="/playlistByGenre")
+    @PostMapping(value="/playlistByGenre")
     public DataResponse getPlaylistByGenre(Integer page,Integer limit,String genre){
 
         return  service.getPlaylistByGenre(page,limit,genre);
 
     }
+
+    @GetMapping()
+    public DataResponse getPlaylistByAuthor(String author){
+
+        return service.getPlaylistByAuthor(author);
+    }
+
 
 }
 

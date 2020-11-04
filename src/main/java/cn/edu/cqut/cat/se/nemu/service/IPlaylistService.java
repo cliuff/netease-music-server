@@ -23,4 +23,6 @@ public interface IPlaylistService extends IService<Playlist> {
     DataResponse getPlaylistByGenre(Integer page,Integer limit,String genre);
 
     DataResponse getPlaylist(Integer page, Integer limit);
+
+    DataResponse getPlaylistByAuthor(String author);
 }
