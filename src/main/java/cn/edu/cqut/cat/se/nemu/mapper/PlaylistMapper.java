@@ -16,7 +16,10 @@ import java.util.List;
  */
 public interface PlaylistMapper extends BaseMapper<Playlist> {
 
-    @Select("SELECT name,cover,view_counts FROM `playlist` order by view_counts desc limit 0,8")
+    @Select("SELECT playlist_name,cover,view_counts FROM `playlist` order by view_counts desc limit 0,8")
     public List<Playlist> getPlayList();
+
+    @Select("SELECT genre FROM `playlist` group by genre having count(*) >1")
+    public List<String> getCategary();
 
 }

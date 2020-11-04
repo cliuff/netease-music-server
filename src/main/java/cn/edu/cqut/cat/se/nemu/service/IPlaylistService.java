@@ -2,6 +2,7 @@ package cn.edu.cqut.cat.se.nemu.service;
 
 import cn.edu.cqut.cat.se.nemu.entity.Playlist;
 import cn.edu.cqut.cat.se.nemu.result.DataResponse;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -15,4 +16,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IPlaylistService extends IService<Playlist> {
 
     DataResponse getPlaylists();
+
+    DataResponse getLunbo();
+    DataResponse getCategary();
+
+    DataResponse getPlaylistByGenre(String genre);
+
+    DataResponse getPlaylist(Integer page, Integer limit);
 }

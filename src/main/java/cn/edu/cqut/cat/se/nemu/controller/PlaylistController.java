@@ -3,9 +3,12 @@ package cn.edu.cqut.cat.se.nemu.controller;
 
 import cn.edu.cqut.cat.se.nemu.entity.Playlist;
 import cn.edu.cqut.cat.se.nemu.result.DataResponse;
+import cn.edu.cqut.cat.se.nemu.result.ResponseMessage;
 import cn.edu.cqut.cat.se.nemu.service.IPlaylistService;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,5 +38,42 @@ public class PlaylistController {
 
         return service.getPlaylists();
     }
+    @GetMapping(value = "/lunbo")
+    public DataResponse getLunbo(){
+
+      return service.getLunbo();
+
+    }
+    @GetMapping(value="/categary")
+    public DataResponse getCategary()
+    {
+        return service.getCategary();
+    }
+
+    @GetMapping(value = "/play")
+    public DataResponse getPlaylist(Integer page,Integer limit){
+
+        /*Page<Playlist> playlistPage = service.page(new Page<>(page,limit));
+
+        if(playlistPage!=null){
+            return new DataResponse(ResponseMessage.SUCCESS,playlistPage.getRecords(),playlistPage.getTotal());
+        }
+        else{
+            return new DataResponse(ResponseMessage.FAILURE);
+        }*/
+           return service.getPlaylist(page,limit);
+
+
+
+    }
+
+    //还没做
+    @GetMapping(value="/playlistByGenre")
+    public DataResponse getPlaylistByGenre(String genre){
+
+        return service.getPlaylistByGenre(genre);
+
+    }
+
 }
 

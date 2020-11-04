@@ -35,6 +35,11 @@ public class DataResponse extends BasicResponse {
         super(message);
         this.data = data;
     }
+    public DataResponse(ResponseMessage message, Object data,Long count) {
+        super(message);
+        this.data = data;
+        this.count = count;
+    }
 
     public DataResponse(String code, Object data) {
         super(code);
