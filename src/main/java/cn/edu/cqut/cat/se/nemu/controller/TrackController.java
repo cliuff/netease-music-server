@@ -4,12 +4,9 @@ package cn.edu.cqut.cat.se.nemu.controller;
 import cn.edu.cqut.cat.se.nemu.result.DataResponse;
 import cn.edu.cqut.cat.se.nemu.service.ITrackService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -22,6 +19,7 @@ import java.util.List;
  * @since 2020-11-01
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/track")
 public class TrackController {
     @Autowired
