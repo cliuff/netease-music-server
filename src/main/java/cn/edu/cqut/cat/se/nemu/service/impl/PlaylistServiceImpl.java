@@ -1,5 +1,6 @@
 package cn.edu.cqut.cat.se.nemu.service.impl;
 
+import cn.edu.cqut.cat.se.nemu.dto.PlaylistDto;
 import cn.edu.cqut.cat.se.nemu.entity.Playlist;
 import cn.edu.cqut.cat.se.nemu.mapper.PlaylistMapper;
 import cn.edu.cqut.cat.se.nemu.result.DataResponse;
@@ -27,7 +28,7 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
     @Override
     public DataResponse getPlaylists() {
 
-        List<Playlist> playlists = baseMapper.getPlayList();
+        List<PlaylistDto> playlists = baseMapper.getPlayList();
 
         if (playlists != null) {
 
@@ -77,7 +78,7 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
              QueryWrapper qw = new QueryWrapper();
              qw.eq("genre",genre);
 
-             Page<Playlist> playlistPage = baseMapper.selectPlaylistsByGenre(new Page<>(page,limit),qw);
+             Page<PlaylistDto> playlistPage = baseMapper.selectPlaylistsByGenre(new Page<>(page,limit),qw);
 
              if(playlistPage!=null){
 

@@ -60,11 +60,11 @@ public class PlaylistController {
 
     }
 
-    //还没做
+
     @GetMapping(value="/playlistByGenre")
     public DataResponse getPlaylistByGenre(Integer page,Integer limit,String genre){
 
-        return  null;
+        return  service.getPlaylistByGenre(page,limit,genre);
 
     }
 
