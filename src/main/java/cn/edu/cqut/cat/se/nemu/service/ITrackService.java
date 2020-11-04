@@ -15,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface ITrackService extends IService<Track> {
 
 
+    DataResponse getTrackList(Integer page, Integer limit, String artistName, String trackName);
 }

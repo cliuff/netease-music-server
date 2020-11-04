@@ -5,6 +5,7 @@ import cn.edu.cqut.cat.se.nemu.result.DataResponse;
 import cn.edu.cqut.cat.se.nemu.service.ITrackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,13 @@ public class TrackController {
     @Autowired
     public ITrackService iTrackService;
 
+
+    @PostMapping(value = "/")
+    public DataResponse getTrackList(Integer page,Integer limit,String artistName,String trackName){
+
+        return iTrackService.getTrackList(page,limit,artistName,trackName);
+
+    }
 
 
 }
