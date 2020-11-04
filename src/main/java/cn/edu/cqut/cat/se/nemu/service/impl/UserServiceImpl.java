@@ -36,4 +36,22 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
 
     }
+
+    @Override
+    public DataResponse getUserInfo(String userId) {
+        if(userId!=null) {
+            User user = baseMapper.selectUserInfo(userId);
+            if(user!=null){
+                return new DataResponse(ResponseMessage.SUCCESS,user);
+            }else{
+                return new DataResponse(ResponseMessage.FAILURE);
+            }
+        }
+        else{
+            return new DataResponse(ResponseMessage.DATA_NULL);
+        }
+
+
+
+    }
 }

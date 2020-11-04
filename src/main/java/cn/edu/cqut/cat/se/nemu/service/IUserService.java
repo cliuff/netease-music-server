@@ -17,4 +17,5 @@ import javax.servlet.http.HttpServletRequest;
 public interface IUserService extends IService<User> {
     public DataResponse login(HttpServletRequest request,String userId,String password);
 
+    DataResponse getUserInfo(String userId);
 }

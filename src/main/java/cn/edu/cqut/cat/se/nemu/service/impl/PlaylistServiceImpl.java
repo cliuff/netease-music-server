@@ -103,7 +103,7 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
 
         if(playlistPage!=null){
             System.out.println("count"+playlistPage.getTotal());
-            return new DataResponse(ResponseMessage.SUCCESS,playlistPage.getRecords(),playlistPage.getTotal());
+            return new DataResponse(ResponseMessage.SUCCESS,playlistPage.getRecords());
 
         }
         else{

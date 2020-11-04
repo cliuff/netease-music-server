@@ -10,6 +10,7 @@ public class DataResponse extends BasicResponse {
     private Object data;
     private Long count;
 
+
     public DataResponse() {
     }
 
@@ -39,6 +40,7 @@ public class DataResponse extends BasicResponse {
         super(message);
         this.data = data;
         this.count = count;
+
     }
 
     public DataResponse(String code, Object data) {
