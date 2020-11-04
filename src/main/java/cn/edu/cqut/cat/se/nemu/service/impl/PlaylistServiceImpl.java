@@ -69,11 +69,27 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
 
     }
 
-    @Override
-    public DataResponse getPlaylistByGenre(String genre) {
+    /*@Override
+    public DataResponse getPlaylistByGenre(Integer page,Integer limit,String genre) {
 
-        return null;
-    }
+         if(genre!=null){
+
+             Page<Playlist> playlistPage = baseMapper.selectPlaylistsByGenre(new Page<>(page,limit),genre);
+
+             if(playlistPage!=null){
+
+                 return new DataResponse(ResponseMessage.SUCCESS,playlistPage.getRecords(),playlistPage.getTotal());
+
+             }
+             else{
+                 return new DataResponse(ResponseMessage.FAILURE);
+             }
+         }
+         else{
+             return new DataResponse(ResponseMessage.DATA_NULL);
+         }
+
+    }*/
 
     @Override
     public DataResponse getPlaylist(Integer page, Integer limit) {

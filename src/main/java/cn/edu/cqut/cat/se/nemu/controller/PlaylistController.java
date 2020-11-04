@@ -53,14 +53,7 @@ public class PlaylistController {
     @GetMapping(value = "/play")
     public DataResponse getPlaylist(Integer page,Integer limit){
 
-        /*Page<Playlist> playlistPage = service.page(new Page<>(page,limit));
 
-        if(playlistPage!=null){
-            return new DataResponse(ResponseMessage.SUCCESS,playlistPage.getRecords(),playlistPage.getTotal());
-        }
-        else{
-            return new DataResponse(ResponseMessage.FAILURE);
-        }*/
            return service.getPlaylist(page,limit);
 
 
@@ -69,9 +62,9 @@ public class PlaylistController {
 
     //还没做
     @GetMapping(value="/playlistByGenre")
-    public DataResponse getPlaylistByGenre(String genre){
+    public DataResponse getPlaylistByGenre(Integer page,Integer limit,String genre){
 
-        return service.getPlaylistByGenre(genre);
+        return  null;
 
     }
 
