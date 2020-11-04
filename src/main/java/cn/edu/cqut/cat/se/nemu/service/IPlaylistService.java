@@ -27,4 +27,6 @@ public interface IPlaylistService extends IService<Playlist> {
     DataResponse getPlaylistByAuthor(String author);
 
     DataResponse getTracksByPlaylistId(String playlistId);
+
+    DataResponse getAllPlaylistInfo();
 }

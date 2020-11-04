@@ -48,4 +48,7 @@ public interface PlaylistMapper extends BaseMapper<Playlist> {
             "and album.album_id = track.album\n" +
             "and playlist_id =#{playlistId}")
     public List<TrackDto> selectTracksByPlaylistId(String playlistId);
+
+    @Select("SELECT * from playlist")
+    public List<Playlist> selectAllPlaylistInfo();
 }

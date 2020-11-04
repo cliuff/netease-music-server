@@ -78,6 +78,10 @@ public class PlaylistController {
 
         return service.getTracksByPlaylistId(playlistId);
     }
+    @GetMapping(value="/allPlaylistInfo")
+    public DataResponse getAllPlaylistInfo(){
+        return service.getAllPlaylistInfo();
+    }
 
 }
 
