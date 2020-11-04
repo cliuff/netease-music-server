@@ -1,6 +1,7 @@
 package cn.edu.cqut.cat.se.nemu.service.impl;
 
 import cn.edu.cqut.cat.se.nemu.dto.PlaylistDto;
+import cn.edu.cqut.cat.se.nemu.dto.TrackDto;
 import cn.edu.cqut.cat.se.nemu.entity.Playlist;
 import cn.edu.cqut.cat.se.nemu.mapper.PlaylistMapper;
 import cn.edu.cqut.cat.se.nemu.result.DataResponse;
@@ -115,9 +116,32 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
 
     @Override
     public DataResponse getPlaylistByAuthor(String author) {
+       if(author!=null){
+
+           List<PlaylistDto> playlistDtos = baseMapper.selectPlaylistByAuthor(author);
+
+           return new DataResponse(ResponseMessage.SUCCESS,playlistDtos);
+
+       }
+       else{
+           return new DataResponse(ResponseMessage.FAILURE);
+       }
+
+    }
+
+    @Override
+    public DataResponse getTracksByPlaylistId(String playlistId) {
+
+           if(playlistId!=null){
+               List<TrackDto>  trackDtoList = baseMapper.selectTracksByPlaylistId(playlistId);
+
+               return new DataResponse(ResponseMessage.SUCCESS,trackDtoList);
 
 
-        return null;
+           }else{
+               return new DataResponse(ResponseMessage.FAILURE);
+           }
+
     }
 
 

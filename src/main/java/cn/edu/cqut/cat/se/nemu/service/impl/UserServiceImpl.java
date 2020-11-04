@@ -29,7 +29,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         User user = baseMapper.login(userId);
         String pwdEn = Md5Util.getMd5(userId,password);
         if(user!=null && user.getPassword().equalsIgnoreCase(pwdEn)){
-            request.getSession().setAttribute("user",user);
+            request.getSession().setAttribute("userId",user.getUserId());
             return new DataResponse(ResponseMessage.SUCCESS);
         }else{
             return new DataResponse("000407","用户名或者密码错误",null);

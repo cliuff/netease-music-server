@@ -67,12 +67,17 @@ public class PlaylistController {
 
     }
 
-    @GetMapping()
+    @GetMapping(value = "/playlistByAuthor")
     public DataResponse getPlaylistByAuthor(String author){
 
         return service.getPlaylistByAuthor(author);
     }
 
+    @GetMapping(value = "/tracksByPlaylistId")
+    public DataResponse getTracksByPlaylistId(String playlistId){
+
+        return service.getTracksByPlaylistId(playlistId);
+    }
 
 }
 

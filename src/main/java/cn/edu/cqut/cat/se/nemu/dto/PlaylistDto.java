@@ -18,6 +18,16 @@ public class PlaylistDto extends Model<Playlist> {
 
     private Integer viewCounts;
 
+    private Integer trackCounts;
+
+
+    public Integer getTrackCounts() {
+        return trackCounts;
+    }
+
+    public void setTrackCounts(Integer trackCounts) {
+        this.trackCounts = trackCounts;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;

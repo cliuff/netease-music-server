@@ -1,6 +1,7 @@
 package cn.edu.cqut.cat.se.nemu.mapper;
 
 import cn.edu.cqut.cat.se.nemu.dto.PlaylistDto;
+import cn.edu.cqut.cat.se.nemu.dto.TrackDto;
 import cn.edu.cqut.cat.se.nemu.entity.Playlist;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -33,5 +34,18 @@ public interface PlaylistMapper extends BaseMapper<Playlist> {
             Page<PlaylistDto> page,
             @Param(Constants.WRAPPER)QueryWrapper<Playlist> queryWrapper);
 
+    @Select("SELECT playlist.playlist_id,playlist_name,playlist.cover,count(playlist_track.track) as trackCounts   FROM `playlist` left join playlist_track on \n" +
+            " playlist.playlist_id = playlist_track.playlist\n" +
+            " where author =#{author}\n" +
+            " GROUP BY playlist.playlist_id")
+    public List<PlaylistDto> selectPlaylistByAuthor(String author);
 
+    @Select("SELECT track_id as trackId,track_name as trackName,length,artist_name as artistName,album_name as albumName \n" +
+            "from track,playlist_track,playlist,artist,album\n" +
+            "where playlist.playlist_id = playlist_track.playlist \n" +
+            "and track.track_id = playlist_track.track\n" +
+            "and artist.artist_id = track.artist\n" +
+            "and album.album_id = track.album\n" +
+            "and playlist_id =#{playlistId}")
+    public List<TrackDto> selectTracksByPlaylistId(String playlistId);
 }
