@@ -1,6 +1,7 @@
 package cn.edu.cqut.cat.se.nemu.controller;
 
 
+import cn.edu.cqut.cat.se.nemu.entity.User;
 import cn.edu.cqut.cat.se.nemu.result.DataResponse;
 import cn.edu.cqut.cat.se.nemu.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,11 @@ public class UserController {
 @GetMapping(value="/userInfo")
     public DataResponse getUserInfo(String userId){
         return iUserService.getUserInfo(userId);
+}
+
+@PostMapping(value="/allUserInfo")
+    public DataResponse getAllUserInfo(Integer page, Integer limit, User user){
+        return iUserService.getAllUserInfo(page,limit,user);
 }
 }
 

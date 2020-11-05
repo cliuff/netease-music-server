@@ -6,6 +6,8 @@ import cn.edu.cqut.cat.se.nemu.result.DataResponse;
 import cn.edu.cqut.cat.se.nemu.result.ResponseMessage;
 import cn.edu.cqut.cat.se.nemu.service.IUserService;
 import cn.edu.cqut.cat.se.nemu.util.Md5Util;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -54,4 +56,33 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
 
     }
+
+    /*Meizzuowan*/
+    @Override
+    public DataResponse getAllUserInfo(Integer page, Integer limit, User user) {
+
+        QueryWrapper<User> qw = new QueryWrapper<>();
+
+        if(user.getUserId()!=null){
+            qw.like("user_id",user.getUserId());
+
+            if(user.getUserName()!=null){
+                qw.or();
+                qw.like("user_name",user.getUserName());
+            }
+        }
+        else
+        {
+
+            if(user.getUserName()!=null){
+                qw.like("user_name",user.getUserName());
+            }
+        }
+        Page<User> userPage = baseMapper.selectAllUserInfo(new Page<>(page,limit),qw);
+
+
+        return new DataResponse(userPage.getRecords(),userPage.getTotal());
+    }
+
+
 }

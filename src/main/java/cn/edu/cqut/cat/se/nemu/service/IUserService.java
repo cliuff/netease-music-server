@@ -18,4 +18,6 @@ public interface IUserService extends IService<User> {
     public DataResponse login(HttpServletRequest request,String userId,String password);
 
     DataResponse getUserInfo(String userId);
+
+    DataResponse getAllUserInfo(Integer page,Integer limit,User user);
 }
