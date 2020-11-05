@@ -35,7 +35,7 @@ public class TrackController {
 
     }
     @DeleteMapping(value="/delete" ,consumes = "application/json")
-    public DataResponse delete(String ids){
+    public DataResponse delete(@RequestBody String ids){
 
         return iTrackService.delete(ids);
 
