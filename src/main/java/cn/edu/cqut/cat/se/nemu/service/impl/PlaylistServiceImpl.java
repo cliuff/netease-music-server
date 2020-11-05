@@ -1,5 +1,6 @@
 package cn.edu.cqut.cat.se.nemu.service.impl;
 
+import cn.edu.cqut.cat.se.nemu.dto.Carousel;
 import cn.edu.cqut.cat.se.nemu.dto.PlaylistDto;
 import cn.edu.cqut.cat.se.nemu.dto.TrackDto;
 import cn.edu.cqut.cat.se.nemu.entity.Playlist;
@@ -12,7 +13,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,16 +44,17 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
 
     @Override
     public DataResponse getLunbo() {
-
-        List<String> lunboList = new ArrayList<>();
-
-        for (int i = 0; i < 8; i++) {
-
-            lunboList.add("media/images/lun" + (i + 1) + ".jpg");
-
-        }
-
-        return new DataResponse(ResponseMessage.SUCCESS, lunboList);
+        Carousel[] carousels = new Carousel[] {
+                new Carousel("media/images/lun1.jpg", "#794e47"),
+                new Carousel("media/images/lun2.jpg", "#fffdf1"),
+                new Carousel("media/images/lun3.jpg", "#23100a"),
+                new Carousel("media/images/lun4.jpg", "#252c34"),
+                new Carousel("media/images/lun5.jpg", "#11140d"),
+                new Carousel("media/images/lun6.jpg", "#aabbc2"),
+                new Carousel("media/images/lun7.jpg", "#091336"),
+                new Carousel("media/images/lun8.jpg", "#dadbdd")
+        };
+        return new DataResponse(ResponseMessage.SUCCESS, carousels);
     }
 
     @Override
