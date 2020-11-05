@@ -15,5 +15,18 @@ import org.apache.ibatis.annotations.Select;
 public interface ArtistMapper extends BaseMapper<Artist> {
 
 
+    @Select("SELECT count(track_id) as trackCounts from track")
+    public Integer selectTrackCounts();
+
+    @Select("SELECT count(artist_id) as artistCounts from artist")
+    public Integer selectArtistCounts();
+
+    @Select("SELECT count(user_id) as userCounts from user")
+    public Integer selectUserCounts();
+
+    @Select("SELECT count(album_id) as albumCounts from album")
+    public Integer selectAlbumCounts();
+
+
 
 }

@@ -1,6 +1,7 @@
 package cn.edu.cqut.cat.se.nemu.service;
 
 import cn.edu.cqut.cat.se.nemu.entity.Artist;
+import cn.edu.cqut.cat.se.nemu.result.DataResponse;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -14,6 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IArtistService extends IService<Artist> {
 
 
-
-
+    DataResponse getSortCounts();
 }

@@ -1,6 +1,9 @@
 package cn.edu.cqut.cat.se.nemu.controller;
 
 
+import cn.edu.cqut.cat.se.nemu.result.DataResponse;
+import cn.edu.cqut.cat.se.nemu.service.IArtistService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/artist")
 public class ArtistController {
 
+  @Autowired
+  public IArtistService iArtistService;
 
+
+    @GetMapping(value="/count")
+    public DataResponse getSortCounts(){
+        return iArtistService.getSortCounts();
+    }
 
 }
 

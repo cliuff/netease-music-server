@@ -1,7 +1,9 @@
 package cn.edu.cqut.cat.se.nemu.service.impl;
 
+import cn.edu.cqut.cat.se.nemu.dto.CountDto;
 import cn.edu.cqut.cat.se.nemu.entity.Artist;
 import cn.edu.cqut.cat.se.nemu.mapper.ArtistMapper;
+import cn.edu.cqut.cat.se.nemu.result.DataResponse;
 import cn.edu.cqut.cat.se.nemu.service.IArtistService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,17 @@ import org.springframework.stereotype.Service;
 public class ArtistServiceImpl extends ServiceImpl<ArtistMapper, Artist> implements IArtistService {
 
 
+    @Override
+    public DataResponse getSortCounts() {
 
 
+        CountDto countDto = new CountDto();
+        Integer  AlbumCounts = baseMapper.selectAlbumCounts();
+                countDto.setAlbumCounts(baseMapper.selectAlbumCounts());
+                countDto.setArtistCounts(baseMapper.selectArtistCounts());
+                countDto.setTrackCounts(baseMapper.selectTrackCounts());
+                countDto.setUserCounts(baseMapper.selectUserCounts());
+
+        return new DataResponse(countDto);
+    }
 }
