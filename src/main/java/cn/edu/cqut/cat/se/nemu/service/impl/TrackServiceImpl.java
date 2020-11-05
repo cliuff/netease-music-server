@@ -39,11 +39,12 @@ public class TrackServiceImpl extends ServiceImpl<TrackMapper, Track> implements
 
     @Override
     @Transactional
-    public DataResponse delete(String[] ids) {
+    public DataResponse delete(String ids) {
+        String[] idss = ids.split(",");
         int j=0;
         try{
             //先判定数据是否存在
-            for(String id:ids){
+            for(String id:idss){
                 Track track = baseMapper.selectTrack(id);
                 if(track!=null){
                     baseMapper.deleteTrack(id);
