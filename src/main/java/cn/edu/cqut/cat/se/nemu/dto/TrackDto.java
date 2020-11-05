@@ -3,10 +3,10 @@ package cn.edu.cqut.cat.se.nemu.dto;
 public class TrackDto {
     private String trackId;
     private String  trackName;
+    private String cover;
     private Long length;
     private String artistName;
     private String albumName;
-
 
     public String getTrackId() {
         return trackId;
@@ -22,6 +22,14 @@ public class TrackDto {
 
     public void setTrackName(String trackName) {
         this.trackName = trackName;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
     public Long getLength() {
