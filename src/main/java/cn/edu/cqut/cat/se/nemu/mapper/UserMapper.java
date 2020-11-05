@@ -9,6 +9,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+
+import java.util.Date;
 
 /**
  * <p>
@@ -33,5 +36,20 @@ public interface UserMapper extends BaseMapper<User> {
     @Select("select user_id from user where user_id=#{userId}")
     public User selectUser(String userId);
     @Delete("delete from user where user_id=#{userId}")
-    public Integer deleteTrack(String userId);
+    public Integer deleteUser(String userId);
+
+    @Update("UPDATE user SET user_name=#{userName}," +
+            " password=#{password}, region=#{region}, user_desc=#{userDesc}, " +
+            "sex=#{sex}, age=#{age}, time=#{time}, " +
+            "image=#{image} WHERE user_id=#{userId}")
+    public Integer updateUser(@Param("userName")String userName,
+                              @Param("userDesc")String userDesc,
+                              @Param("password")String password,
+                              @Param("region")String region,
+                              @Param("sex")String sex,
+                              @Param("age")Integer age,
+                              @Param("time") Date time,
+                              @Param("image")String image,
+                              @Param("userId")String userId
+                                          );
 }

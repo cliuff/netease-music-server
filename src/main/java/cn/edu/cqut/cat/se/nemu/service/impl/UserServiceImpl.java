@@ -10,11 +10,13 @@ import cn.edu.cqut.cat.se.nemu.util.Md5Util;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -85,7 +87,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             for(String id:idss){
                 User user= baseMapper.selectUser(id);
                 if(user!=null){
-                    baseMapper.deleteTrack(id);
+                    baseMapper.deleteUser(id);
                     j++;
                 }
 
@@ -107,6 +109,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if(user!=null){
             User user1 = baseMapper.selectUser(user.getUserId());
             if(user1==null) {
+                Date time1 = new Date();
+                user.setTime(time1);
                 save(user);
                 return new DataResponse();
             }
@@ -121,6 +125,44 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
 
     }
+
+    @Override
+    @Transactional
+    public DataResponse updateUser(User user) {
+        try {
+            User user1= baseMapper.selectUser(user.getUserId());
+            //还需要加逻辑判定  -- 去学习正则表达式
+            if(user1!=null){
+
+              Integer i = baseMapper.updateUser(
+                      user.getUserName(),
+                      user.getUserDesc(),
+                      user.getPassword(),
+                      user.getRegion(),
+                      user.getSex(),
+                      user.getAge(),
+                      user.getTime(),
+                      user.getImage(),
+                      user.getUserId()
+              );
+                if(i==0){
+                    return new DataResponse(ResponseMessage.FAILURE);
+                }else{
+                    return new DataResponse(ResponseMessage.SUC);
+                }
+            }else {
+                return new DataResponse("000407","请刷新以后在尝试！");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            return new DataResponse(ResponseMessage.FAILURE);
+        }
+
+    }
+
+
 
 
 }

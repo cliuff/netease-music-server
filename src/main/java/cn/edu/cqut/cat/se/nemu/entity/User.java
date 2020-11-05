@@ -1,5 +1,6 @@
 package cn.edu.cqut.cat.se.nemu.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,6 +21,7 @@ public class User extends Model<User> {
 
     private static final long serialVersionUID = 1L;
 
+    @TableField("user_id")
     private String userId;
 
     private String userName;

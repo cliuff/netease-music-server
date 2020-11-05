@@ -24,4 +24,6 @@ public interface IUserService extends IService<User> {
     DataResponse delete(String ids);
 
     DataResponse add(User user);
+
+    DataResponse updateUser(User user);
 }
