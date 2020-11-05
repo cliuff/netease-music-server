@@ -10,6 +10,11 @@ import java.io.File;
  */
 @Configuration
 public class SpringConfig implements WebMvcConfigurer {
+
+    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
+            "classpath:/META-INF/resources/", "classpath:/resources/",
+            "classpath:/static/", "classpath:/public/" };
+
 //    @Autowired
 //    private HttpInterceptor httpInterceptor;
 
@@ -18,8 +23,9 @@ public class SpringConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //项目的文件夹绝对路径
         String dir = System.getProperty("user.dir");
-        registry.addResourceHandler("/media/**")
-                .addResourceLocations("file:" + dir + File.separator + "media" + File.separator);
+        registry.addResourceHandler("/**")
+                .addResourceLocations("file:" + dir + File.separator + "media" + File.separator)
+                .addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS);
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 
