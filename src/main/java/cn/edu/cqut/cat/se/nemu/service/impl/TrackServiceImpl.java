@@ -128,10 +128,10 @@ public class TrackServiceImpl extends ServiceImpl<TrackMapper, Track> implements
                 track.setTrackId(trackId);
                 track.setTrackName(trackInfoDto.getTrackName());
                 track.setTime(trackInfoDto.getTime());
-                track.setGenre(track.getGenre());
+                track.setGenre(trackInfoDto.getGenre());
                 track.setRegion(trackInfoDto.getRegion());
-                track.setCover(track.getCover());
-                track.setTrackDesc(track.getTrackDesc());
+                track.setCover(trackInfoDto.getCover());
+                track.setTrackDesc(trackInfoDto.getTrackDesc());
 
                   save(track);
                   return new DataResponse();

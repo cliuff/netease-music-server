@@ -20,4 +20,6 @@ public interface IUserService extends IService<User> {
     DataResponse getUserInfo(String userId);
 
     DataResponse getAllUserInfo(Integer page,Integer limit,User user);
+
+    DataResponse delete(String ids);
 }

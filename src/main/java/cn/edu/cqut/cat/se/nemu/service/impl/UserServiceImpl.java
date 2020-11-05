@@ -1,5 +1,6 @@
 package cn.edu.cqut.cat.se.nemu.service.impl;
 
+import cn.edu.cqut.cat.se.nemu.entity.Track;
 import cn.edu.cqut.cat.se.nemu.entity.User;
 import cn.edu.cqut.cat.se.nemu.mapper.UserMapper;
 import cn.edu.cqut.cat.se.nemu.result.DataResponse;
@@ -10,6 +11,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -57,7 +60,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     }
 
-
     @Override
     public DataResponse getAllUserInfo(Integer page, Integer limit, User user) {
         QueryWrapper<User> qw = new QueryWrapper<>();
@@ -71,6 +73,34 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
         return new DataResponse(userPage.getRecords(),userPage.getTotal());
     }
+
+    @Override
+    @Transactional
+    public DataResponse delete(String ids) {
+        String[] idss = ids.split(",");
+        int j=0;
+        try{
+            //先判定数据是否存在
+            for(String id:idss){
+                User user= baseMapper.selectUser(id);
+                if(user!=null){
+                    baseMapper.deleteTrack(id);
+                    j++;
+                }
+
+            }
+            return new DataResponse(j);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            //设置手动回滚
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            return new DataResponse(ResponseMessage.FAILURE);
+        }
+
+    }
+
 
 
 }

@@ -5,11 +5,7 @@ import cn.edu.cqut.cat.se.nemu.entity.User;
 import cn.edu.cqut.cat.se.nemu.result.DataResponse;
 import cn.edu.cqut.cat.se.nemu.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -41,5 +37,12 @@ public class UserController {
     public DataResponse getAllUserInfo(Integer page, Integer limit, User user){
         return iUserService.getAllUserInfo(page,limit,user);
 }
+    @DeleteMapping(value="/" ,consumes = "application/json")
+    public DataResponse delete(@RequestBody String ids){
+
+        return iUserService.delete(ids);
+
+
+    }
 }
 

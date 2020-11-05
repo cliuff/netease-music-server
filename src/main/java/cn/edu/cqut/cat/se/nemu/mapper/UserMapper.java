@@ -1,5 +1,6 @@
 package cn.edu.cqut.cat.se.nemu.mapper;
 
+import cn.edu.cqut.cat.se.nemu.entity.Track;
 import cn.edu.cqut.cat.se.nemu.entity.User;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -28,5 +29,8 @@ public interface UserMapper extends BaseMapper<User> {
             @Param(Constants.WRAPPER)QueryWrapper<User> queryWrapper
 
     );
+    @Select("select user_id from track where user_id=#{userId}")
+    public User selectUser(String userId);
 
+    public Integer deleteTrack(String id);
 }
