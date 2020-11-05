@@ -67,4 +67,16 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
             return new DataResponse("000407","用户名或者密码错误",null);
         }
     }
+
+    @Override
+    public DataResponse getInfoById(String adminId) {
+        if(adminId!=null){
+            Admin admin = baseMapper.selectInfoById(adminId);
+            return new DataResponse(admin);
+        }
+        else{
+            return new DataResponse(ResponseMessage.FAILURE);
+        }
+
+    }
 }

@@ -24,4 +24,6 @@ public interface AdminMapper extends BaseMapper<Admin> {
 
     @Select("select admin_id,password,image from admin where admin_id=#{adminId}")
     public Admin login(String adminId);
+    @Select("select admin_id,admin_name,password,time,image from admin where admin_id=#{adminId}")
+    public Admin selectInfoById(String adminId);
 }

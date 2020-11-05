@@ -36,5 +36,10 @@ public class AdminController {
         return iAdminService.login(adminId,password);
     }
 
+    @GetMapping(value="infoById")
+    public DataResponse getInfoById(String adminId){
+        return iAdminService.getInfoById(adminId);
+    }
+
 }
 

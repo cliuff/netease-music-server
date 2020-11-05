@@ -17,4 +17,6 @@ public interface IAdminService extends IService<Admin> {
     DataResponse updateAdminInfo(Admin admin);
 
     DataResponse login(String adminId, String password);
+
+    DataResponse getInfoById(String adminId);
 }
