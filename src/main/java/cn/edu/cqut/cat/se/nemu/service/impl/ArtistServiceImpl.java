@@ -56,8 +56,8 @@ public class ArtistServiceImpl extends ServiceImpl<ArtistMapper, Artist> impleme
         Integer maleCounts = baseMapper.selectMaleCounts();
         Integer femaleCounts = baseMapper.selectFemaleCounts();
         CountDto countDto = new CountDto();
-        countDto.setMaleCounts(maleCounts);
-        countDto.setFemaleCounts(femaleCounts);
+        countDto.setNanCounts(maleCounts);
+        countDto.setNvCounts(femaleCounts);
         return new DataResponse(countDto);
     }
 }

@@ -6,23 +6,23 @@ public class CountDto {
     private Integer trackCounts;
     private Integer artistCounts;
     private Integer month;
-    private Integer maleCounts;
-    private Integer femaleCounts;
+    private Integer nanCounts;
+    private Integer nvCounts;
 
-    public Integer getMaleCounts() {
-        return maleCounts;
+    public Integer getNanCounts() {
+        return nanCounts;
     }
 
-    public void setMaleCounts(Integer maleCounts) {
-        this.maleCounts = maleCounts;
+    public void setNanCounts(Integer nanCounts) {
+        this.nanCounts = nanCounts;
     }
 
-    public Integer getFemaleCounts() {
-        return femaleCounts;
+    public Integer getNvCounts() {
+        return nvCounts;
     }
 
-    public void setFemaleCounts(Integer femaleCounts) {
-        this.femaleCounts = femaleCounts;
+    public void setNvCounts(Integer nvCounts) {
+        this.nvCounts = nvCounts;
     }
 
     public Integer getMonth() {
