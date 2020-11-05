@@ -16,4 +16,6 @@ public interface IArtistService extends IService<Artist> {
 
 
     DataResponse getSortCounts();
+
+    DataResponse getCountByMonth();
 }

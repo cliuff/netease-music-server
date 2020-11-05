@@ -32,6 +32,10 @@ public class ArtistController {
     public DataResponse getSortCounts(){
         return iArtistService.getSortCounts();
     }
+    @GetMapping(value = "/countByMonth")
+    public DataResponse getCountByMonth(){
+      return iArtistService.getCountByMonth();
+    }
 
 }
 

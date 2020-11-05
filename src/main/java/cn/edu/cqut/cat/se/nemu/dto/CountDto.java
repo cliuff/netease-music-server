@@ -5,6 +5,16 @@ public class CountDto {
     private Integer albumCounts;
     private Integer trackCounts;
     private Integer artistCounts;
+    private Integer month;
+
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
 
     public Integer getUserCounts() {
         return userCounts;

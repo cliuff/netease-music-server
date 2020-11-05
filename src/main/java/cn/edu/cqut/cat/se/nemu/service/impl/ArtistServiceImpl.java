@@ -8,6 +8,8 @@ import cn.edu.cqut.cat.se.nemu.service.IArtistService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -30,6 +32,21 @@ public class ArtistServiceImpl extends ServiceImpl<ArtistMapper, Artist> impleme
                 countDto.setArtistCounts(baseMapper.selectArtistCounts());
                 countDto.setTrackCounts(baseMapper.selectTrackCounts());
                 countDto.setUserCounts(baseMapper.selectUserCounts());
+
+        return new DataResponse(countDto);
+    }
+
+    @Override
+    public DataResponse getCountByMonth() {
+
+        List<CountDto> countDto = baseMapper.selectAlbumCountByMonth();
+        List<CountDto> trackcountDto = baseMapper.selectTrackCountByMonth();
+        List<CountDto> usercountDto = baseMapper.selectUserCountByMonth();
+
+        for(int i=0;i<12;i++){
+            countDto.get(i).setUserCounts(usercountDto.get(i).getUserCounts());
+            countDto.get(i).setTrackCounts(trackcountDto.get(i).getTrackCounts());
+        }
 
         return new DataResponse(countDto);
     }
