@@ -2,6 +2,7 @@ package cn.edu.cqut.cat.se.nemu.mapper;
 
 import cn.edu.cqut.cat.se.nemu.entity.Artist;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * <p>
@@ -12,5 +13,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2020-11-01
  */
 public interface ArtistMapper extends BaseMapper<Artist> {
+
+
 
 }

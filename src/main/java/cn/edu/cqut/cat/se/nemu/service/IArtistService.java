@@ -13,4 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IArtistService extends IService<Artist> {
 
+
+
+
 }

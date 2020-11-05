@@ -34,8 +34,17 @@ public class User extends Model<User> {
     private Integer age;
    /* @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")*/
     @DateTimeFormat(pattern = "yyy-MM-dd hh:mm:ss")
-    private LocalDateTime time;
+    private  LocalDateTime time;
 
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getUserId() {
         return userId;
