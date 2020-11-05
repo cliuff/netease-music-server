@@ -57,26 +57,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     }
 
-    /*Meizzuowan*/
+
     @Override
     public DataResponse getAllUserInfo(Integer page, Integer limit, User user) {
-
         QueryWrapper<User> qw = new QueryWrapper<>();
-
-        if(user.getUserId()!=null){
-            qw.like("user_id",user.getUserId());
-
-            if(user.getUserName()!=null){
-                qw.or();
-                qw.like("user_name",user.getUserName());
-            }
-        }
-        else
-        {
-
-            if(user.getUserName()!=null){
-                qw.like("user_name",user.getUserName());
-            }
+        if(user.getUserId()!=null||user.getUserName()!=null){
+            qw.like("user_id", user.getUserId());
+            qw.or();
+            qw.like("user_name", user.getUserName()); //第一个参数是字段名
         }
         Page<User> userPage = baseMapper.selectAllUserInfo(new Page<>(page,limit),qw);
 
