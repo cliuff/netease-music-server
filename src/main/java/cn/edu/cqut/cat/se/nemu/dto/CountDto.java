@@ -6,7 +6,24 @@ public class CountDto {
     private Integer trackCounts;
     private Integer artistCounts;
     private Integer month;
+    private Integer maleCounts;
+    private Integer femaleCounts;
 
+    public Integer getMaleCounts() {
+        return maleCounts;
+    }
+
+    public void setMaleCounts(Integer maleCounts) {
+        this.maleCounts = maleCounts;
+    }
+
+    public Integer getFemaleCounts() {
+        return femaleCounts;
+    }
+
+    public void setFemaleCounts(Integer femaleCounts) {
+        this.femaleCounts = femaleCounts;
+    }
 
     public Integer getMonth() {
         return month;

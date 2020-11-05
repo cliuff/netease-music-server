@@ -48,7 +48,11 @@ public interface ArtistMapper extends BaseMapper<Artist> {
             "ORDER BY  MONTH(album.time) ")
     public List<CountDto> selectAlbumCountByMonth();
 
+   @Select("SELECT count(user_id) as maleCounts from user where sex ='男' ")
+    public Integer selectMaleCounts();
 
+    @Select("SELECT count(user_id) as femaleCounts from user where sex ='女' ")
+    public Integer selectFemaleCounts();
 
 
 }

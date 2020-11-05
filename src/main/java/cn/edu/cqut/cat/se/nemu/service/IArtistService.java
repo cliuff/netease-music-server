@@ -18,4 +18,6 @@ public interface IArtistService extends IService<Artist> {
     DataResponse getSortCounts();
 
     DataResponse getCountByMonth();
+
+    DataResponse getCountBySex();
 }

@@ -1,6 +1,7 @@
 package cn.edu.cqut.cat.se.nemu.service;
 
 import cn.edu.cqut.cat.se.nemu.entity.Admin;
+import cn.edu.cqut.cat.se.nemu.result.DataResponse;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -13,4 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IAdminService extends IService<Admin> {
 
+    DataResponse updateAdminInfo(Admin admin);
+
+    DataResponse login(String adminId, String password);
 }

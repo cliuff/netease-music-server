@@ -37,5 +37,11 @@ public class ArtistController {
       return iArtistService.getCountByMonth();
     }
 
+    @GetMapping(value = "/countBySex")
+  public DataResponse getCountBySex(){
+      return iArtistService.getCountBySex();
+    }
+
+
 }
 

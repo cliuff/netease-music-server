@@ -1,8 +1,11 @@
 package cn.edu.cqut.cat.se.nemu.entity;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -22,8 +25,18 @@ public class Admin extends Model<Admin> {
 
     private String password;
 
-    private LocalDateTime time;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date time;
 
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getAdminId() {
         return adminId;
@@ -49,11 +62,11 @@ public class Admin extends Model<Admin> {
         this.password = password;
     }
 
-    public LocalDateTime getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

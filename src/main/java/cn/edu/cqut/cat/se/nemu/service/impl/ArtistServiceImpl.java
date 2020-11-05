@@ -50,4 +50,14 @@ public class ArtistServiceImpl extends ServiceImpl<ArtistMapper, Artist> impleme
 
         return new DataResponse(countDto);
     }
+
+    @Override
+    public DataResponse getCountBySex() {
+        Integer maleCounts = baseMapper.selectMaleCounts();
+        Integer femaleCounts = baseMapper.selectFemaleCounts();
+        CountDto countDto = new CountDto();
+        countDto.setMaleCounts(maleCounts);
+        countDto.setFemaleCounts(femaleCounts);
+        return new DataResponse(countDto);
+    }
 }
