@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -31,6 +32,6 @@ public interface UserMapper extends BaseMapper<User> {
     );
     @Select("select user_id from track where user_id=#{userId}")
     public User selectUser(String userId);
-
-    public Integer deleteTrack(String id);
+    @Delete("delete from user where user_id=#{userId}")
+    public Integer deleteTrack(String userId);
 }

@@ -132,7 +132,8 @@ public class TrackServiceImpl extends ServiceImpl<TrackMapper, Track> implements
                 track.setRegion(trackInfoDto.getRegion());
                 track.setCover(trackInfoDto.getCover());
                 track.setTrackDesc(trackInfoDto.getTrackDesc());
-
+                Long length = Long.valueOf(369000);
+                track.setLength(length);
                   save(track);
                   return new DataResponse();
 
