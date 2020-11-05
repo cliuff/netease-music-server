@@ -148,7 +148,41 @@ public class TrackServiceImpl extends ServiceImpl<TrackMapper, Track> implements
         return new DataResponse(ResponseMessage.FAILURE);
     }
 
+    @Override
+    @Transactional
+    public DataResponse updateTrack1(TrackInfoDto trackInfoDto) {
 
+        try {
+            Track track = baseMapper.selectTrack(trackInfoDto.getTrackId());
+            //还需要加逻辑判定  -- 去学习正则表达式
+            if(track!=null){
+                Integer i =  baseMapper.updateTrack1(trackInfoDto.getLyrics(),trackInfoDto.getTrackId());
+                if(i==0){
+                    return new DataResponse(ResponseMessage.FAILURE);
+                }else{
+                    return new DataResponse(ResponseMessage.SUC);
+                }
+            }else {
+                return new DataResponse("000407","请刷新以后在尝试！");
+            }
 
+        }catch (Exception e){
+            e.printStackTrace();
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            return new DataResponse(ResponseMessage.FAILURE);
+        }
+
+    }
+
+    @Override
+    public DataResponse trackAndlyric() {
+        return new DataResponse(baseMapper.selectTrackwithout());
+    }
+
+    @Override
+    public DataResponse trackAndlyric1(String trackId) {
+
+        return new DataResponse(baseMapper.selectTrackwithout1(trackId));
+    }
 
 }

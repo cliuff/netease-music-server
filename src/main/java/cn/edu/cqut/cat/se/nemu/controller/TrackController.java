@@ -52,6 +52,20 @@ public class TrackController {
         return iTrackService.add(trackInfoDto);
     }
 
+    @RequestMapping(value = "select1",method = RequestMethod.GET)
+    public DataResponse trackAndlyric(){
+        return  iTrackService.trackAndlyric();
+    }
+    @PutMapping(value="/update")
+    public DataResponse update1(TrackInfoDto trackInfoDto){
+        return iTrackService.updateTrack1(trackInfoDto);
+    }
+
+    @DeleteMapping(value = "select2",consumes = "application/json")
+    public DataResponse trackAndlyric1(@RequestBody String trackId){
+        System.out.println("!!!!!!!!!!!!!!"+trackId);
+        return  iTrackService.trackAndlyric1(trackId);
+    }
 
 }
 
