@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -33,8 +34,8 @@ public class User extends Model<User> {
 
     private Integer age;
    /* @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")*/
-    @DateTimeFormat(pattern = "yyy-MM-dd hh:mm:ss")
-    private  LocalDateTime time;
+    @DateTimeFormat(pattern = "yyy-MM-dd")
+    private Date time;
 
     private String image;
 
@@ -102,11 +103,11 @@ public class User extends Model<User> {
         this.age = age;
     }
 
-    public LocalDateTime getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

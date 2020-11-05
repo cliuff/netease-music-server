@@ -39,12 +39,13 @@ public interface TrackMapper extends BaseMapper<Track> {
    @Delete("delete from track where track_id=#{trackId}")
     public Integer deleteTrack(String trackId);
 
-   @Update("update track set cover=#{cover},genre=#{genre},region=#{region},track_desc=#{trackDesc} where track_id=#{trackId}")
+   @Update("update track set cover=#{cover},track_name=#{trackName},genre=#{genre},region=#{region},track_desc=#{trackDesc} where track_id=#{trackId}")
     public Integer updateTrack(
             @Param("cover") String cover,
             @Param("genre")String genre,
             @Param("region")String region,
             @Param("trackDesc")String trackDesc,
+            @Param("trackName")String trackName,
             @Param("trackId")String trackId);
 
     @Select("SELECT artist_id FROM `artist` where artist_name=#{artistName}")

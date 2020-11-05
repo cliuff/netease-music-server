@@ -22,4 +22,6 @@ public interface IUserService extends IService<User> {
     DataResponse getAllUserInfo(Integer page,Integer limit,User user);
 
     DataResponse delete(String ids);
+
+    DataResponse add(User user);
 }

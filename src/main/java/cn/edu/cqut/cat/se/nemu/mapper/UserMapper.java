@@ -30,7 +30,7 @@ public interface UserMapper extends BaseMapper<User> {
             @Param(Constants.WRAPPER)QueryWrapper<User> queryWrapper
 
     );
-    @Select("select user_id from track where user_id=#{userId}")
+    @Select("select user_id from user where user_id=#{userId}")
     public User selectUser(String userId);
     @Delete("delete from user where user_id=#{userId}")
     public Integer deleteTrack(String userId);

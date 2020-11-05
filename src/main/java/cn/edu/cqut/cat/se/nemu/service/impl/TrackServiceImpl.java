@@ -80,7 +80,7 @@ public class TrackServiceImpl extends ServiceImpl<TrackMapper, Track> implements
            Track track = baseMapper.selectTrack(trackInfoDto.getTrackId());
             //还需要加逻辑判定  -- 去学习正则表达式
             if(track!=null){
-                Integer i =  baseMapper.updateTrack(trackInfoDto.getCover(),trackInfoDto.getGenre(),trackInfoDto.getRegion(),trackInfoDto.getTrackDesc(),trackInfoDto.getTrackId());
+                Integer i =  baseMapper.updateTrack(trackInfoDto.getCover(),trackInfoDto.getGenre(),trackInfoDto.getRegion(),trackInfoDto.getTrackDesc(),trackInfoDto.getTrackName(),trackInfoDto.getTrackId());
                 if(i==0){
                     return new DataResponse(ResponseMessage.FAILURE);
                 }else{

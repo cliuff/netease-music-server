@@ -44,5 +44,9 @@ public class UserController {
 
 
     }
+    @PostMapping(value = "/add")
+    public DataResponse add(User user){
+        return iUserService.add(user);
+    }
 }
 

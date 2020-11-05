@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
 
 /**
  * <p>
@@ -101,6 +102,25 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     }
 
+    @Override
+    public DataResponse add(User user) {
+        if(user!=null){
+            User user1 = baseMapper.selectUser(user.getUserId());
+            if(user1==null) {
+                save(user);
+                return new DataResponse();
+            }
+            else
+            {
+                return new DataResponse("000456","用户账号已存在");
+            }
+        }
+        else
+        {
+            return new DataResponse(ResponseMessage.FAILURE);
+        }
+
+    }
 
 
 }
