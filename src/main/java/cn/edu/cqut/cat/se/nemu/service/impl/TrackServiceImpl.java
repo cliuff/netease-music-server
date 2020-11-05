@@ -94,7 +94,8 @@ public class TrackServiceImpl extends ServiceImpl<TrackMapper, Track> implements
     public DataResponse add(TrackInfoDto trackInfoDto) {
 
         String trackId = UUID.randomUUID().toString().replace("_", "").substring(0, 4);
-        Track track = new Track();
+        Track track = new Track();/////
+        //的撒法恩
         if(trackInfoDto!=null){
             if(trackInfoDto.getAlbumName()!=null && trackInfoDto.getArtistName()!=null){
                 String artistId1= baseMapper.selectArtistByName(trackInfoDto.getArtistName());
