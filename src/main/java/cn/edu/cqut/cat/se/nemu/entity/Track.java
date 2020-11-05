@@ -33,6 +33,7 @@ public class Track extends Model<Track> {
 
     private String cover;
 
+    private String audio;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date time;
 
@@ -44,6 +45,13 @@ public class Track extends Model<Track> {
 
     private String lyrics;
 
+    public String getAudio() {
+        return audio;
+    }
+
+    public void setAudio(String audio) {
+        this.audio = audio;
+    }
 
     public String getTrackId() {
         return trackId;
