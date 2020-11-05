@@ -22,4 +22,6 @@ public interface ITrackService extends IService<Track> {
     DataResponse delete(String[] ids);
 
     DataResponse updateTrack(TrackInfoDto trackInfoDto);
+
+    DataResponse add(TrackInfoDto trackInfoDto);
 }

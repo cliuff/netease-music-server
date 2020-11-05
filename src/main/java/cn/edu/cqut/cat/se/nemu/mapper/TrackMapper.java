@@ -2,6 +2,8 @@ package cn.edu.cqut.cat.se.nemu.mapper;
 
 import cn.edu.cqut.cat.se.nemu.dto.TrackDto;
 import cn.edu.cqut.cat.se.nemu.dto.TrackInfoDto;
+import cn.edu.cqut.cat.se.nemu.entity.Album;
+import cn.edu.cqut.cat.se.nemu.entity.Artist;
 import cn.edu.cqut.cat.se.nemu.entity.Track;
 import cn.edu.cqut.cat.se.nemu.util.SqlMapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -44,6 +46,13 @@ public interface TrackMapper extends BaseMapper<Track> {
             @Param("region")String region,
             @Param("trackDesc")String trackDesc,
             @Param("trackId")String trackId);
+
+    @Select("SELECT artist_id FROM `artist` where artist_name=#{artistName}")
+    public Artist selectArtistByName(String artistName);
+
+    @Select("select album_id from album where album_name=#{albumName}")
+    public Album selectAlbumByName(String albumName);
+
 
 
 }

@@ -46,6 +46,12 @@ public class TrackController {
         return iTrackService.updateTrack(trackInfoDto);
     }
 
+    @PostMapping(value = "/add")
+    public DataResponse add(TrackInfoDto trackInfoDto){
+
+        return iTrackService.add(trackInfoDto);
+    }
+
 
 }
 

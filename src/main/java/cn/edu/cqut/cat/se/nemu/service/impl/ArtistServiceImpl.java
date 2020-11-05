@@ -17,4 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ArtistServiceImpl extends ServiceImpl<ArtistMapper, Artist> implements IArtistService {
 
+
+
+
 }
