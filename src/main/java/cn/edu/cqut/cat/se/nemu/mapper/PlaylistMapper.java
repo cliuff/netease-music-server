@@ -40,7 +40,7 @@ public interface PlaylistMapper extends BaseMapper<Playlist> {
             " GROUP BY playlist.playlist_id")
     public List<PlaylistDto> selectPlaylistByAuthor(String author);
 
-    @Select("SELECT track_id as trackId,track_name as trackName,track.cover,length,artist_name as artistName,album_name as albumName \n" +
+    @Select("SELECT track_id as trackId,track_name as trackName,track.cover,audio,length,artist_name as artistName,album_name as albumName \n" +
             "from track,playlist_track,playlist,artist,album\n" +
             "where playlist.playlist_id = playlist_track.playlist \n" +
             "and track.track_id = playlist_track.track\n" +

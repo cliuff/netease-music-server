@@ -4,6 +4,7 @@ public class TrackDto {
     private String trackId;
     private String  trackName;
     private String cover;
+    private String audio;
     private Long length;
     private String artistName;
     private String albumName;
@@ -30,6 +31,14 @@ public class TrackDto {
 
     public void setCover(String cover) {
         this.cover = cover;
+    }
+
+    public String getAudio() {
+        return audio;
+    }
+
+    public void setAudio(String audio) {
+        this.audio = audio;
     }
 
     public Long getLength() {
