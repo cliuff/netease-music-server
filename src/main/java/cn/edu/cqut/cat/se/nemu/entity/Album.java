@@ -1,6 +1,8 @@
 package cn.edu.cqut.cat.se.nemu.entity;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -24,6 +26,7 @@ public class Album extends Model<Album> {
 
     private String cover;
 
+    @DateTimeFormat(pattern = "yyy-MM-dd hh:mm:ss")
     private LocalDateTime time;
 
     private String genre;

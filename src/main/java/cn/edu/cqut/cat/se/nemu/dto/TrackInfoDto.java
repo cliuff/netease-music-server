@@ -1,9 +1,11 @@
 package cn.edu.cqut.cat.se.nemu.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class TrackInfoDto {
     private String trackId;
@@ -13,8 +15,9 @@ public class TrackInfoDto {
     private String albumName;
     private String cover;
 
-    @DateTimeFormat(pattern = "yyy-MM-dd hh:mm:ss")
-    private LocalDateTime time;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date time;
     private String genre;
     private String region;
     private String trackDesc;
@@ -68,11 +71,11 @@ public class TrackInfoDto {
         this.cover = cover;
     }
 
-    public LocalDateTime getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

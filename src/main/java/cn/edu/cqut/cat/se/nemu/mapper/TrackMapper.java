@@ -48,11 +48,15 @@ public interface TrackMapper extends BaseMapper<Track> {
             @Param("trackId")String trackId);
 
     @Select("SELECT artist_id FROM `artist` where artist_name=#{artistName}")
-    public Artist selectArtistByName(String artistName);
+    public String selectArtistByName(String artistName);
 
     @Select("select album_id from album where album_name=#{albumName}")
-    public Album selectAlbumByName(String albumName);
+    public String selectAlbumByName(String albumName);
 
+    @Insert("insert into artist (artist_id,artist_name) values(#{artistId},#{artistName}) ")
+    public Integer insertArtist(String artistId,String artistName);
+    @Insert("insert into album (album_id,album_name) values(#{albumId},#{albumName})")
+    public Integer insertAlbum(String albumId,String albumName);
 
 
 }

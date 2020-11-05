@@ -78,9 +78,9 @@ public class PlaylistController {
 
         return service.getTracksByPlaylistId(playlistId);
     }
-    @GetMapping(value="/allPlaylistInfo")
-    public DataResponse getAllPlaylistInfo(){
-        return service.getAllPlaylistInfo();
+    @GetMapping(value="/infoById")
+    public DataResponse getInfoById(String playlistId){
+        return service.getInfoById(playlistId);
     }
 
 }

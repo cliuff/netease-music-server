@@ -96,32 +96,36 @@ public class TrackServiceImpl extends ServiceImpl<TrackMapper, Track> implements
         Track track = new Track();
         if(trackInfoDto!=null){
             if(trackInfoDto.getAlbumName()!=null && trackInfoDto.getArtistName()!=null){
-                Artist artist= baseMapper.selectArtistByName(trackInfoDto.getArtistName());
-                Album album = baseMapper.selectAlbumByName(trackInfoDto.getAlbumName());
+                String artistId1= baseMapper.selectArtistByName(trackInfoDto.getArtistName());
+              String albumId1 = baseMapper.selectAlbumByName(trackInfoDto.getAlbumName());
 
-                if(artist.getArtistId()!=null){
-                    track.setArtist(artist.getArtistId());
+                if(artistId1!=null){
+                    track.setArtist(artistId1);
                 }
                 else{
                     String artistId = UUID.randomUUID().toString().replace("_", "").substring(0, 4);
                     track.setArtist(artistId);
-                    Artist artist1 = new Artist();
-                    artist1.setArtistId(artistId);
-                    artist1.setArtistName(trackInfoDto.getArtistName());
-                    new ArtistServiceImpl().save(artist1);//添加新歌手
+                     baseMapper.insertArtist(artistId,trackInfoDto.getArtistName());//添加新歌手
                 }
-                if(album.getAlbumId()!=null){
-                    track.setAlbum(album.getAlbumId());
+                if(albumId1!=null){
+                    track.setAlbum(albumId1);
                 }
                 else{
                     String albumId = UUID.randomUUID().toString().replace("_", "").substring(0, 4);
                     track.setAlbum(albumId);
-                    Album album1= new Album();
-                    album1.setAlbumId(albumId);
-                    album1.setAlbumName(trackInfoDto.getAlbumName());
-                    new AlbumServiceImpl().save(album1);//添加专辑信息
+                    baseMapper.insertAlbum(albumId,trackInfoDto.getAlbumName());//添加专辑信息
                 }
-               /* track.setTrackId();*/
+                track.setTrackId(trackId);
+                track.setTrackName(trackInfoDto.getTrackName());
+                track.setTime(trackInfoDto.getTime());
+                track.setGenre(track.getGenre());
+                track.setRegion(trackInfoDto.getRegion());
+                track.setCover(track.getCover());
+                track.setTrackDesc(track.getTrackDesc());
+
+                  save(track);
+                  return new DataResponse();
+
 
             }
 
@@ -130,6 +134,6 @@ public class TrackServiceImpl extends ServiceImpl<TrackMapper, Track> implements
         {
             return new DataResponse(ResponseMessage.DATA_NULL);
         }
-        return null;
+        return new DataResponse(ResponseMessage.FAILURE);
     }
 }

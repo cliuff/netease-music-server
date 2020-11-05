@@ -1,8 +1,13 @@
 package cn.edu.cqut.cat.se.nemu.entity;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -28,7 +33,8 @@ public class Track extends Model<Track> {
 
     private String cover;
 
-    private LocalDateTime time;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date time;
 
     private String genre;
 
@@ -87,11 +93,11 @@ public class Track extends Model<Track> {
         this.cover = cover;
     }
 
-    public LocalDateTime getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

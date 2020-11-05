@@ -145,9 +145,18 @@ public class PlaylistServiceImpl extends ServiceImpl<PlaylistMapper, Playlist> i
     }
 
     @Override
-    public DataResponse getAllPlaylistInfo() {
-        List<Playlist> playlists = baseMapper.selectAllPlaylistInfo();
-        return new DataResponse(ResponseMessage.SUCCESS,playlists);
+    public DataResponse getInfoById(String playlistId) {
+        if(playlistId!=null){
+            Playlist playlist= baseMapper.selectInfo(playlistId);
+
+            return new DataResponse(ResponseMessage.SUCCESS,playlist);
+
+        }
+        else{
+            return new DataResponse(ResponseMessage.FAILURE);
+        }
+
+
     }
 
 
