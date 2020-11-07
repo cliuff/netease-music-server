@@ -1,2 +1,6 @@
+# 项目路径，生成代码时需要
 app.project.dir=C:\\path\\to\\your\\project\\dir
+# MyBatisPlus代码生成器需要生成的表
 app.datasource.tables=tableName1,tableName2
+# 发布/开发环境，开发和发布时释放资源时路径不同
+app.production=false

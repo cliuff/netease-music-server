@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
-class ConfigUtil {
+public class ConfigUtil {
     public static String CONFIG_DEFAULT = "config.properties";
     public static String PROJECT_DIR = "app.project.dir";
     public static String DATASOURCE_UTIL_TABLES = "app.datasource.tables";
+    public static String PRODUCTION = "app.production";
 
     public static Properties getProperties() {
         return getProperties(CONFIG_DEFAULT);
